@@ -1,6 +1,6 @@
 # 🏡 California Housing: Population & Price Prediction
 
-This project explores California housing data through **EDA** and builds a **Linear Regression model** to predict median house values.
+This project explores California housing data through **EDA** and builds a **Linear Regression model** to predict population based on 6 major factors.
 
 - 📈 **`R² Score (Test Set)` ≈ 0.8698**
 - 🔁 **`Mean R² (10-Fold CV)` ≈ 0.8503**  
