@@ -23,7 +23,7 @@ This project explores California housing data through **EDA** and builds a **Lin
 
 ## 🚀 Try the App Live
 
-👉 [**Click here to use the live app on Hugging Face**](https://huggingface.co/spaces/steam-bell-92/California_population))  
+👉 [**Click here to use the live app on Hugging Face**](https://huggingface.co/spaces/steam-bell-92/California_population)  
 
 ## 📈 Features Used in Prediction
 
