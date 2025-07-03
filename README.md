@@ -3,9 +3,11 @@
 This project explores California housing data through **EDA** and builds a **Linear Regression model** to predict population based on 6 major factors.
 
 - 📈 **`R² Score (Test Set)` ≈ 0.8698**
-- 🔁 **`Mean R² (10-Fold CV)` ≈ 0.8503**  
+- 🔁 **`Mean R² (10-Fold CV)` ≈ 0.8503**
 
 > The web app is deployed using **Gradio** and hosted on **Hugging Face Spaces**
+
+---
 
 ## 🧰 Tech Stack
 
@@ -21,9 +23,13 @@ This project explores California housing data through **EDA** and builds a **Lin
 | **`Gradio`**            | Web-based interface                     |
 | **`Hugging Face Spaces`** | Free model hosting                   |
 
+---
+
 ## 🚀 Try the App Live
 
 👉 [**Click here to use the live app on Hugging Face**](https://huggingface.co/spaces/steam-bell-92/California_population)  
+
+---
 
 ## 📈 Features Used in Prediction
 
@@ -33,6 +39,8 @@ This project explores California housing data through **EDA** and builds a **Lin
 - 🧱 Housing median age  
 - 🌎 Latitude & Longitude  
 
+---
+
 ## 🛠️ How It Works
 
 1. Dataset loaded from Colab sample files.
@@ -40,6 +48,8 @@ This project explores California housing data through **EDA** and builds a **Lin
 3. Data scaled using `RobustScaler` for better regression stability.
 4. A `LinearRegression` model is trained and evaluated.
 5. Final model deployed as an interactive app via Gradio.
+
+---
 
 ## 📁 Project Structure
 
@@ -52,6 +62,7 @@ California-Population/
 ├── requirements.txt                               🔹 Python dependencies
 └── README.md                                      🔹 This file!
 ```
+---
 
 ## 👤 Author
 
