@@ -5,7 +5,8 @@ This project explores California housing data through **EDA** and builds a **Lin
 - 📈 **`R² Score (Test Set)` ≈ 0.8698**
 - 🔁 **`Mean R² (10-Fold CV)` ≈ 0.8503**
 
-> The web app is deployed using **Gradio** and hosted on **Hugging Face Spaces**
+> The web app is deployed using **Gradio** and hosted on **Hugging Face Spaces**<br>
+> Note: This dataset is generally used for predicting house prices
 
 ---
 
