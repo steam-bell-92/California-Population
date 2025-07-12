@@ -20,6 +20,7 @@ This project explores California housing data through **EDA** and builds a **Lin
 | **`Pandas`**            | Data loading, wrangling, and analysis   |
 | **`Matplotlib`**        | Data visualization                      |
 | **`Seaborn`**           | Statistical plots and heatmaps          |
+| **`Plotly`**            | Mapping plots          |
 | **`scikit-learn`**      | Model training, evaluation, scaling     |
 | **`RobustScaler`**      | Scaling features resistant to outliers  |
 | **`Joblib`**            | Saving/loading trained model            |
@@ -62,6 +63,7 @@ California-Population/
 ├── model.joblib                                   🔹 Trained regression model
 ├── scaler.joblib                                  🔹 Store fitted scaler object 
 ├── California_housing_train.ipynb                 🔹 EDA + model notebook
+├── california_housing_train.py                    🔹 Python File
 ├── requirements.txt                               🔹 Python dependencies
 └── README.md                                      🔹 This file!
 ```
