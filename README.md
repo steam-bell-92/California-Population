@@ -59,13 +59,20 @@ This project explores California housing data through **EDA** and builds a **Lin
 
 ```
 California-Population/
-├── app.py                                         🔹 Gradio interface
-├── model.joblib                                   🔹 Trained regression model
-├── scaler.joblib                                  🔹 Store fitted scaler object 
-├── California_housing_train.ipynb                 🔹 EDA + model notebook
-├── california_housing_train.py                    🔹 Python File
-├── LICENSE                                n       🔹 MIT License
-└── README.md                                      🔹 This file!
+|
+├── CODES/
+|    ├── California_housing_train.ipynb                 🔹 EDA + model notebook
+|    ├── california_housing_train.py                    🔹 Python File
+|    └── Locations.png                                  🔹 Cell '43' Plot
+|
+├── WEBSITE/
+|    ├── app.py                                         🔹 Gradio interface
+|    ├── model.joblib                                   🔹 Trained regression model
+|    └── scaler.joblib                                  🔹 Store fitted scaler object 
+|    
+├── LICENSE                                n            🔹 MIT License
+|
+└── README.md                                           🔹 This file!
 ```
 ---
 
