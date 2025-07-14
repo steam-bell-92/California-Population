@@ -10,6 +10,7 @@ This project explores California housing data through **EDA** and builds a **Lin
 > The web app is deployed using **Gradio** and hosted on **Hugging Face Spaces**<br>
 > Note: This dataset is generally used for predicting house prices
 
+<img src="https://github.com/steam-bell-92/California-Population/blob/main/CODES/Locations.png">
 ---
 
 ## 🧰 Tech Stack
