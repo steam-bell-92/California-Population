@@ -1,4 +1,0 @@
-gradio
-scikit-learn
-numpy
-joblib
