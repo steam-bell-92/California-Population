@@ -64,7 +64,7 @@ California-Population/
 ├── scaler.joblib                                  🔹 Store fitted scaler object 
 ├── California_housing_train.ipynb                 🔹 EDA + model notebook
 ├── california_housing_train.py                    🔹 Python File
-├── requirements.txt                               🔹 Python dependencies
+├── LICENSE                                n       🔹 MIT License
 └── README.md                                      🔹 This file!
 ```
 ---
