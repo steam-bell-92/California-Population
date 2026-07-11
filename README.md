@@ -1,84 +1,59 @@
-# 🏡 California Housing: Population & Price Prediction
+# California Housing Population Prediction
 
-This project explores California housing data through **EDA** and builds a **Linear Regression model** to predict population based on 6 major factors.
+## Overview
 
-- 📈 **`R² Score (Test Set)` ≈ 0.8698**
-- 🔁 **`Mean R² (10-Fold CV)` ≈ 0.8503**
+This project analyzes the California housing dataset, performs exploratory data analysis, and trains a linear regression model to predict population from housing-related features.
 
-⭐ If you find this useful, consider giving it a star!
+## Problem Statement
 
-> The web app is deployed using **Gradio** and hosted on **Hugging Face Spaces**<br>
-> Note: This dataset is generally used for predicting house prices
+The goal is to understand how housing attributes relate to population and to build a regression model that estimates population from the available features.
 
-<img src="https://github.com/steam-bell-92/California-Population/blob/main/CODES/Locations.png">
----
+## Dataset
 
-## 🧰 Tech Stack
+Dataset source: placeholder to be documented by the project owner.
 
-| Tool / Library          | Purpose                                 |
-|-------------------------|-----------------------------------------|
-| **`NumPy`**             | Numerical operations                    |
-| **`Pandas`**            | Data loading, wrangling, and analysis   |
-| **`Matplotlib`**        | Data visualization                      |
-| **`Seaborn`**           | Statistical plots and heatmaps          |
-| **`Plotly`**            | Mapping plots          |
-| **`scikit-learn`**      | Model training, evaluation, scaling     |
-| **`RobustScaler`**      | Scaling features resistant to outliers  |
-| **`Joblib`**            | Saving/loading trained model            |
-| **`Gradio`**            | Web-based interface                     |
-| **`Hugging Face Spaces`** | Free model hosting                   |
+The standardized data input path is `data/raw/california_housing_train.csv`.
 
----
+## Technologies Used
 
-## 🚀 Try the App Live
+- Python
+- Pandas
+- NumPy
+- Matplotlib
+- Seaborn
+- Plotly
+- Scikit-learn
+- Joblib
+- Gradio
 
-👉 [**Click here to use the live app on Hugging Face**](https://huggingface.co/spaces/steam-bell-92/California_population)  
+## Project Structure
 
----
+- `data/raw/` stores the source dataset.
+- `data/processed/` is reserved for cleaned or derived datasets.
+- `notebooks/` contains the analysis notebook.
+- `src/` contains the reusable training script.
+- `models/` stores the trained model and scaler artifacts.
+- `images/` stores project visuals used in documentation.
+- `WEBSITE/` contains the Gradio application entrypoint.
 
-## 📈 Features Used in Prediction
+## Workflow
 
-- 🧍‍♂️ Population  
-- 🛏️ Total bedrooms  
-- 💰 Median income  
-- 🧱 Housing median age  
-- 🌎 Latitude & Longitude  
+1. Load the housing dataset from a configurable local path.
+2. Perform exploratory data analysis and feature inspection.
+3. Create the engineered `room/household` feature.
+4. Remove outliers using the existing IQR-based workflow.
+5. Split the data, scale features with `RobustScaler`, and train a `LinearRegression` model.
+6. Evaluate the model with test-set R² and 10-fold cross-validation.
+7. Save the trained artifacts for the Gradio app.
 
----
+## Results
 
-## 🛠️ How It Works
+- Test R² score: approximately 0.8698
+- Mean 10-fold cross-validation R²: approximately 0.8503
 
-1. Dataset loaded from Colab sample files.
-2. EDA performed to understand distribution, correlation, and geography.
-3. Data scaled using `RobustScaler` for better regression stability.
-4. A `LinearRegression` model is trained and evaluated.
-5. Final model deployed as an interactive app via Gradio.
+## Future Improvements
 
----
-
-## 📁 Project Structure
-
-```
-California-Population/
-|
-├── CODES/
-|    ├── California_housing_train.ipynb                 🔹 EDA + model notebook
-|    ├── california_housing_train.py                    🔹 Python File
-|    └── Locations.png                                  🔹 Cell '43' Plot
-|
-├── WEBSITE/
-|    ├── app.py                                         🔹 Gradio interface
-|    ├── model.joblib                                   🔹 Trained regression model
-|    └── scaler.joblib                                  🔹 Store fitted scaler object 
-|    
-├── LICENSE                                n            🔹 MIT License
-|
-└── README.md                                           🔹 This file!
-```
----
-
-## 👤 Author
-
-Anuj Kulkarni aka steam-bell-92
-
-![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)
+- Document the dataset source in this README.
+- Add a reproducible data download or preparation step.
+- Expand evaluation with residual analysis and error diagnostics.
+- Add automated checks for the training and inference pipeline.

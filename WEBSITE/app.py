@@ -1,10 +1,17 @@
+from pathlib import Path
+
 import gradio as gr
-import numpy as np
 import joblib
+import numpy as np
+
+
+APP_DIR = Path(__file__).resolve().parent
+MODEL_PATH = APP_DIR.parent / "models" / "model.joblib"
+SCALER_PATH = APP_DIR.parent / "models" / "scaler.joblib"
 
 # Load trained model and scaler
-model = joblib.load("model.joblib")
-scaler = joblib.load("scaler.joblib")
+model = joblib.load(MODEL_PATH)
+scaler = joblib.load(SCALER_PATH)
 
 def predict_population(income, age, rooms, bedrooms, density, households, latitude):
     features = np.array([[income, age, rooms, bedrooms, density, households, latitude]])

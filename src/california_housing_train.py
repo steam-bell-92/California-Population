@@ -1,17 +1,25 @@
-import pandas as pd
-import numpy as np
-import matplotlib.pyplot as plt
-import seaborn as sns
-import plotly.express as px
-from sklearn.model_selection import train_test_split, cross_val_score
-from sklearn.metrics import r2_score
-from sklearn.preprocessing import RobustScaler
-from sklearn.linear_model import LinearRegression
-import joblib
+from pathlib import Path
 import zipfile
 
+import joblib
+import matplotlib.pyplot as plt
+import pandas as pd
+import plotly.express as px
+import seaborn as sns
+from sklearn.linear_model import LinearRegression
+from sklearn.metrics import r2_score
+from sklearn.model_selection import cross_val_score, train_test_split
+from sklearn.preprocessing import RobustScaler
+
+
+PROJECT_ROOT = Path(__file__).resolve().parents[1]
+DATA_PATH = PROJECT_ROOT / "data" / "raw" / "california_housing_train.csv"
+MODEL_PATH = PROJECT_ROOT / "models" / "model.joblib"
+SCALER_PATH = PROJECT_ROOT / "models" / "scaler.joblib"
+REQUIREMENTS_PATH = PROJECT_ROOT / "requirements.txt"
+
 class CaliforniaHousingPipeline:
-    def __init__(self, model_path='model.joblib', scaler_path='scaler.joblib'):
+    def __init__(self, model_path=MODEL_PATH, scaler_path=SCALER_PATH):
         self.data = None
         self.df_clean = None
         self.model = LinearRegression()
@@ -42,10 +50,6 @@ class CaliforniaHousingPipeline:
         Applies IQR filtering sequentially. 
         FIX: Ensures filters accumulate instead of overwriting.
         """
-        
-
-[Image of box plot anatomy]
-
         self.df_clean = self.data.copy()
         original_len = len(self.df_clean)
 
@@ -132,49 +136,41 @@ class CaliforniaHousingPipeline:
 
     def save_artifacts(self, zip_name="California_app.zip"):
         """Saves model, scaler, and creates the deployment zip."""
+        self.model_path.parent.mkdir(parents=True, exist_ok=True)
         joblib.dump(self.model, self.model_path)
         joblib.dump(self.scaler, self.scaler_path)
         
-        with open("requirements.txt", "w") as f:
-            f.write("gradio\nscikit-learn\nnumpy\njoblib\npandas")
-            
         with zipfile.ZipFile(zip_name, "w") as zipf:
-            zipf.write(self.model_path)
-            zipf.write(self.scaler_path)
-            zipf.write("requirements.txt")
+            zipf.write(self.model_path, arcname=self.model_path.name)
+            zipf.write(self.scaler_path, arcname=self.scaler_path.name)
+            zipf.write(REQUIREMENTS_PATH, arcname=REQUIREMENTS_PATH.name)
             
         print(f"Artifacts saved and zipped to {zip_name}")
 
 # --- Usage ---
 if __name__ == "__main__":
-    # Initialize
     pipeline = CaliforniaHousingPipeline()
-    
-    # 1. Load Data
-    # Note: Replace path with your actual file location
+
     try:
-        pipeline.load_data('/content/sample_data/california_housing_train.csv')
-    except:
-        print("File not found. Please ensure the path is correct.")
+        pipeline.load_data(DATA_PATH)
+    except FileNotFoundError:
+        print(f"File not found. Please ensure the path is correct: {DATA_PATH}")
 
     if pipeline.data is not None:
-        # 2. Feature Engineering
         pipeline.feature_engineering()
-        
-        # 3. Outlier Removal (using the list from your script)
-        check_cols = ['median_income', 'median_house_value', 'households', 
-                      'population', 'total_bedrooms', 'total_rooms', 
-                      'housing_median_age', 'room/household']
+
+        check_cols = [
+            'median_income',
+            'median_house_value',
+            'households',
+            'population',
+            'total_bedrooms',
+            'total_rooms',
+            'housing_median_age',
+            'room/household',
+        ]
         pipeline.remove_outliers(check_cols)
-        
-        # 4. Visualization (Optional)
-        # pipeline.visualize_eda()
-        
-        # 5. Modeling
-        # Note: I kept your logic of predicting 'population'. 
-        # If you meant to predict house value, change target_col to 'median_house_value'
+
         pipeline.prepare_model_data(target_col='population')
         pipeline.train_and_evaluate()
-        
-        # 6. Save
         pipeline.save_artifacts()
